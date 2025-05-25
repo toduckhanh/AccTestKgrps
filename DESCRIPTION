@@ -1,0 +1,22 @@
+Package: AccTestKgrps
+Type: Package
+Title: Evaluate the dignostic accuracy of biomarker in K-class setting
+Version: 0.1.0
+Authors@R: 
+    person(given = "Duc-Khanh",
+           family = "To",
+           role = c("aut", "cre"),
+           email = "toduc@stat.unipd.it",
+           comment = c(ORCID = "0000-0002-4641-0764"))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Depends: R(>= 3.3.0), stats, utils, graphics, Rcpp (>= 1.0.1)
+Imports:
+LinkingTo: Rcpp, RcppArmadillo
+LazyLoad: yes
+ByteCompile: yes
+RoxygenNote: 7.3.2
+NeedsCompilation: yes
