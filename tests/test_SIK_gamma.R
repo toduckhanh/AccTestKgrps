@@ -1,4 +1,4 @@
-DIK_gamma <- function(shape, scale){
+SIK_gamma <- function(shape, scale){
   ff <- function(x, shape, scale){
     ffj <- numeric(length(shape))
     for(i in 1:length(shape)){
@@ -10,7 +10,7 @@ DIK_gamma <- function(shape, scale){
                        upper = Inf, shape = shape, scale = scale)$value)
 }
 
-DIK_gamma_log <- function(shape, scale){
+SIK_gamma_log <- function(shape, scale){
   ff <- function(x, shape, scale){
     ffj <- numeric(length(shape))
     for(i in 1:length(shape)){
@@ -24,26 +24,26 @@ DIK_gamma_log <- function(shape, scale){
 }
 
 
-DIK_gamma(shape = c(1, 1.75, 2), scale = c(2, 1.7, 1.5))
-DIK_gamma_log(shape = c(1, 1.75, 2), scale = c(2, 1.7, 1.5))
+SIK_gamma(shape = c(1, 1.75, 2), scale = c(2, 1.7, 1.5))
+SIK_gamma_log(shape = c(1, 1.75, 2), scale = c(2, 1.7, 1.5))
 
 X1 <- rgamma(50, shape = 1, scale = 2)
 X2 <- rgamma(50, shape = 1.75, scale = 1.7)
 X3 <- rgamma(50, shape = 2, scale = 1.5)
 
-DIK_hist(X_list = list(X1, X2, X3))
-DIK_hist(X_list = list(log(X1), log(X2), log(X3)))
+SIK_hist(X_list = list(X1, X2, X3))
+SIK_hist(X_list = list(log(X1), log(X2), log(X3)))
 
 
 X1 <- rgamma(50, shape = 1, scale = 2)
 X2 <- rgamma(50, shape = 1.75, scale = 1.7)
 
-DIK_hist(X_list = list(X1, X2))
-DIK_hist(X_list = list(log(X1), log(X2)))
+SIK_hist(X_list = list(X1, X2))
+SIK_hist(X_list = list(log(X1), log(X2)))
 
-DIK_hist_log <- function(X_list, xlim, hx = 0.001){
+SIK_hist_log <- function(X_list, xlim, hx = 0.001){
   ## X_list: list of X1, X2, ..., Xk
-  ## xlim: limits of range for all X, where the DIK needs to be estimated
+  ## xlim: limits of range for all X, where the SIK needs to be estimated
   if (missing(xlim)) {
     X_lim <- sapply(X_list, range)
     xlim <- c(min(X_lim[1,]), max(X_lim[2,]))
@@ -59,6 +59,6 @@ DIK_hist_log <- function(X_list, xlim, hx = 0.001){
   return(1 - pracma::trapz(x = xx_log, y = ff_ovl))
 }
 
-DIK_hist_log(X_list = list(X1, X2))
+SIK_hist_log(X_list = list(X1, X2))
 
 
